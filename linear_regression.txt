@@ -1,0 +1,49 @@
+clc;
+clear;
+
+
+// Input Data
+n = input("Enter the number of terms: ");
+
+disp("Enter the values of x:")
+for i = 1:n
+    x(i) = input("");
+end
+
+disp("Enter the values of y:")
+for i = 1:n
+    y(i) = input("");
+end
+
+// Initialize summation variables
+sumx = 0;
+sumy = 0;
+sumxy = 0;
+sumx2 = 0;
+
+// Calculation of Summations
+for i = 1:n
+    sumx = sumx + x(i);
+    sumx2 = sumx2 + x(i) * x(i);
+    sumy = sumy + y(i);
+    sumxy = sumxy + x(i) * y(i);
+end
+
+// Regression Formulae
+denominator = (n * sumx2 - sumx^2);
+a = (sumx2 * sumy - sumx * sumxy) / denominator;
+b = (n * sumxy - sumx * sumy) / denominator;
+
+printf("The regression line is: %.3f + %.3fx\n", a, b);
+
+// Plotting the Data Points
+plot(x, y, 'ro', 'MarkerSize', 7);
+xlabel("X");
+ylabel("Y");
+title("Linear Regression line");
+
+// Plotting the Regression Line
+x_fit = linspace(min(x), max(x), 100);
+y_fit = a + b * x_fit;
+plot(x_fit, y_fit, 'b', 'LineWidth', 2);
+xgrid()
