@@ -1,0 +1,19 @@
+// Code for Binomial Distribution
+clc;
+clear;
+clf; // Clear current figure
+
+n = input("Enter value of n: ");
+p = input("Enter value of p: ");
+
+// Calculate binomial distribution probabilities
+a = binomial(p, n);
+
+disp(a)
+
+xgrid()
+plot(0:n, a, "o-")
+
+xlabel('No. of times success occurs')
+ylabel('Probability of obtaining success')
+title('Binomial Distribution', 'fontsize', 4)

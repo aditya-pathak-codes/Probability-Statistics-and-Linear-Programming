@@ -1,0 +1,23 @@
+// Code for Poisson Distribution
+clc;
+
+n = input('Enter the number of observations: ');
+for i = 0:n
+    X(i+1) = i;
+end
+
+Mean = input('Enter value of lambda: ');
+for r = 0:n
+    p(r+1) = (exp(-Mean) * (Mean^r)) / factorial(r);
+end
+
+xgrid()
+
+// Plotting with specific marker styles
+plot(X, p, 'cyan', 'marker', 'o', 'markerFaceColor', 'yel', 'markerEdgeColor', 'red')
+
+title('Poisson Distribution', 'fontsize', 4)
+xlabel('Number of occurrences of r successes')
+ylabel('Probability of r successes')
+
+disp(p)

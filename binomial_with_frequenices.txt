@@ -1,0 +1,50 @@
+// Fitting a binomial distribution
+clc;
+clear;
+clf;
+
+n = 4;
+X = [0, 1, 2, 3, 4];
+F = [5, 29, 36, 25, 5]'; // Observed frequencies
+
+disp("No. of heads: ", X)
+disp("Frequencies: ", F)
+
+// Calculating the mean of the distribution
+// Using dot product for sum(X*F)
+C = X * F;
+disp("Product of X and F: ", C)
+
+D = sum(F);
+disp("Sum of frequencies: ", D)
+
+Mean = C / D;
+disp("Mean: ", Mean)
+
+// Estimating parameters p and q
+p = Mean / n;
+disp("probability of success: ", p)
+
+q = 1 - p;
+disp("probability of failure: ", q)
+
+// Calculating expected probabilities and frequencies
+x_prob = binomial(p, n);
+disp("P(x) - Probabilities: ", x_prob)
+
+y = round(100 * x_prob);
+disp("Expected frequency: ", y)
+
+// Plotting Actual vs Expected frequencies
+xgrid()
+
+// Expected frequencies plot
+plot(0:n, y, 'cyan', 'marker', 'o', 'markerFaceColor', 'yel', 'markerEdgeColor', 'red')
+
+// Actual frequencies plot
+plot(0:n, F', 'br', 'marker', 's', 'markerFaceColor', 'magenta', 'markerEdgeColor', 'blue')
+
+legend(['Expected frequencies'; 'Actual frequencies'], 5)
+xlabel('no. of times success occurs')
+ylabel('Frequency (the number of heads)')
+title('Fitting a binomial distribution', 'fontsize', 4)

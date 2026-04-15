@@ -1,0 +1,16 @@
+clc;
+clear;
+a = 0;
+b = 1;
+
+n = input('Enter number of terms: ');
+
+disp(a)
+disp(b)
+
+for i = 1:n-2
+    c = a + b;
+    a = b;
+    b = c;
+    disp(c)
+end
