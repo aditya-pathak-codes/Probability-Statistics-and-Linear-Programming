@@ -1,0 +1,1 @@
+in this repo i have tried to cover all the important topics of probability ans statistics, which will be required in my machine learning mathematics concepts. Also further i will be doing some linear algebra and calculus revision as i already studied that during my school time. 
